@@ -9,7 +9,7 @@ namespace WinForms.Binding
     public delegate void PropertyUpdatedHandler<T>(object sender, T @object, string propertyName);
 
     public partial class ControlBinder<T>
-    {        
+    {
         public T Object
         {
             get => _object;

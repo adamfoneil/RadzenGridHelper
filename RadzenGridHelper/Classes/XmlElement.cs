@@ -21,7 +21,7 @@ namespace RadzenGridHelper.Classes
         public XmlElement(string name, object attributes) : this(name)
         {
             var props = attributes.GetType().GetProperties();
-            foreach (var pi in props) Attributes.Add(pi.Name, pi.GetValue(attributes));            
+            foreach (var pi in props) Attributes.Add(pi.Name, pi.GetValue(attributes));
         }
 
         public string Name { get; }
@@ -60,7 +60,7 @@ namespace RadzenGridHelper.Classes
             }
         }
 
-        public override string ToString() => ToString('\t', 1);        
+        public override string ToString() => ToString('\t', 1);
 
         private static string StartTag(XmlElement element) => $"<{element.Name}{AttributeString(element)}>";
 
@@ -70,6 +70,6 @@ namespace RadzenGridHelper.Classes
 
         private static string AttributeString(XmlElement element) => (element.Attributes?.Any() ?? false) ?
             " " + string.Join(" ", element.Attributes.Select(kp => $"{kp.Key}=\"{kp.Value?.ToString().Replace("\"", "&quot;")}\"")) :
-            string.Empty;        
+            string.Empty;
     }
 }

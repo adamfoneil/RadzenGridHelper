@@ -2,7 +2,6 @@
 using RadzenGridHelper.Services;
 using System;
 using System.Linq;
-using System.Text.Json;
 using System.Windows.Forms;
 using WinForms.Binding;
 
@@ -10,11 +9,11 @@ namespace RadzenGridHelper
 {
     public partial class frmMain : Form
     {
-        private DocumentManager<Grid> _doc;        
+        private DocumentManager<Grid> _doc;
 
         public frmMain()
         {
-            InitializeComponent();                        
+            InitializeComponent();
             dgvColumns.AutoGenerateColumns = false;
         }
 
@@ -31,7 +30,7 @@ namespace RadzenGridHelper
         }
 
         private void InitBinding()
-        {            
+        {
             _doc.Binder.Add(tbItemType, field => field.ItemType);
             _doc.Binder.Add(tbContextVar, field => field.ContextVariable);
             _doc.Binder.AddDataGridView(dgvColumns, g => g.Columns, (rows, obj) => obj.Columns = rows.ToArray());
@@ -44,7 +43,7 @@ namespace RadzenGridHelper
 
         private async void btnOpen_Click(object sender, EventArgs e)
         {
-            await _doc.PromptOpenAsync();            
+            await _doc.PromptOpenAsync();
         }
 
         private void btnCopy_Click(object sender, EventArgs e)

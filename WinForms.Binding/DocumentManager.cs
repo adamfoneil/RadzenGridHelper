@@ -81,7 +81,7 @@ namespace WinForms.Binding
             T obj = JsonSerializer.Deserialize<T>(json);
             Binder.Object = obj;
             _fileName = fileName;
-        }        
+        }
 
         public async Task<bool> PromptSaveAsync()
         {
@@ -111,7 +111,7 @@ namespace WinForms.Binding
         public async Task SaveAsync(string fileName)
         {
             var json = JsonSerializer.Serialize(Binder.Object, SerializerOptions);
-            await File .WriteAllTextAsync(fileName, json);
+            await File.WriteAllTextAsync(fileName, json);
             _fileName = fileName;
             Binder.IsDirty = false;
         }

@@ -14,7 +14,7 @@ namespace WinForms.Binding
             _setControls.Add((obj) => InitGridViewBinding(obj, dataGridView, collection));
 
             InitGridViewBinding(Object, dataGridView, collection);
-            
+
             dataGridView.RowValidated += (sender, args) =>
             {
                 var bindingSource = ((sender as DataGridView).DataSource) as BindingSource;
@@ -35,7 +35,7 @@ namespace WinForms.Binding
             dataGridView.CellEndEdit += (sender, args) =>
             {
                 IsDirty = true;
-            };            
+            };
         }
 
         private void InitGridViewBinding<TRow>(T @object, DataGridView dataGridView, Expression<Func<T, IEnumerable<TRow>>> collection)
