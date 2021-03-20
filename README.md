@@ -15,3 +15,5 @@ As for the markup generation, this is done with a few ingredients:
 - The grid markup itself is made by [RadzenMarkup.BuildGrid](https://github.com/adamfoneil/RadzenGridHelper/blob/master/RadzenGridHelper/Services/RadzenMarkup.cs). This builds XML in a particular way from a `Grid` object.
 
 - You can see sample output in the [unit test](https://github.com/adamfoneil/RadzenGridHelper/blob/master/Testing/MarkupTest.cs) for it.
+
+I considered adding Reflection capability to make it easier to discover property names, but there's a big jump in complexity to make that all work nicely, so I'm stopping where I am now on this.
