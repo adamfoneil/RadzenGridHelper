@@ -1,4 +1,4 @@
-This is a little WinForms app to help with creating [Radzen DataGrid](https://blazor.radzen.com/datagrid) markup. The Radzen syntax is a little verbose IMO, so this helps remove the repeated content. I'm not complaining about Radzen's components, because their stuff is good and free. I just need a little more productivity when it comes to creating data grid functionality in Blazor. Having done it manually dozens of times now, I'm ready for a little tooling help.
+This is a little WinForms app to help with creating [Radzen DataGrid](https://blazor.radzen.com/datagrid) markup. The Radzen syntax is a little verbose IMO, so this helps remove the repeated content. I'm not complaining about Radzen's components, because their stuff is good and free. I just need a little more productivity when it comes to creating data grid functionality in Blazor. Having done it manually dozens of times now, I'm ready for a little tooling help. The need for this came up as I've been working on my show-and-tell Blazor project [BlazorAO](https://github.com/adamfoneil/BlazorAO).
 
 ![img](https://adamosoftware.blob.core.windows.net/images/SV7VJC3876.png)
 
