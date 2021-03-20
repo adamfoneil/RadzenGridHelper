@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace RadzenGridHelper.Services
 {
-    public class RadzenMarkup
+    public static class RadzenMarkup
     {
-        public string BuildGrid(Grid grid)
+        public static string BuildGrid(Grid grid, char indent = default, int count = 0)
         {
             var root = new XmlElement("RadzenGrid", new
             {
@@ -43,7 +43,7 @@ namespace RadzenGridHelper.Services
                 return ele;
             }));
 
-            return root.ToString(' ', 2);
+            return (indent.Equals(default)) ? root.ToString() : root.ToString(indent, count);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Testing
                 }
             };
 
-            var xml = new RadzenMarkup().BuildGrid(grid);
+            var xml = RadzenMarkup.BuildGrid(grid, ' ', 2);
 
             Assert.IsTrue(xml.Equals(
                 @"<RadzenGrid TItem=""Whatever"">
