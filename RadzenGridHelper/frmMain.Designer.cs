@@ -31,83 +31,68 @@ namespace RadzenGridHelper
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
-            this.tbAssembly = new System.Windows.Forms.ToolStripTextBox();
-            this.btnSelectAssembly = new System.Windows.Forms.ToolStripButton();
-            this.tbContextVar = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.tbItemType = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tbItemType = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tbContextVar = new System.Windows.Forms.ToolStripTextBox();
+            this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.dgvColumns = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.colPropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEditorControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnBuildMarkup = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColumns)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripLabel3,
-            this.tbAssembly,
-            this.btnSelectAssembly,
-            this.tbContextVar,
-            this.toolStripLabel2,
+            this.toolStripLabel1,
             this.tbItemType,
-            this.toolStripLabel1});
+            this.toolStripLabel2,
+            this.tbContextVar,
+            this.btnSave});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(664, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripLabel3
+            // toolStripLabel1
             // 
-            this.toolStripLabel3.Name = "toolStripLabel3";
-            this.toolStripLabel3.Size = new System.Drawing.Size(61, 22);
-            this.toolStripLabel3.Text = "Assembly:";
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(40, 22);
+            this.toolStripLabel1.Text = "TItem:";
             // 
-            // tbAssembly
+            // tbItemType
             // 
-            this.tbAssembly.Name = "tbAssembly";
-            this.tbAssembly.Size = new System.Drawing.Size(100, 25);
-            // 
-            // btnSelectAssembly
-            // 
-            this.btnSelectAssembly.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnSelectAssembly.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectAssembly.Image")));
-            this.btnSelectAssembly.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSelectAssembly.Name = "btnSelectAssembly";
-            this.btnSelectAssembly.Size = new System.Drawing.Size(51, 22);
-            this.btnSelectAssembly.Text = "Select...";
-            // 
-            // tbContextVar
-            // 
-            this.tbContextVar.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tbContextVar.Name = "tbContextVar";
-            this.tbContextVar.Size = new System.Drawing.Size(50, 25);
+            this.tbItemType.Name = "tbItemType";
+            this.tbItemType.Size = new System.Drawing.Size(200, 25);
             // 
             // toolStripLabel2
             // 
-            this.toolStripLabel2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabel2.Name = "toolStripLabel2";
             this.toolStripLabel2.Size = new System.Drawing.Size(96, 22);
             this.toolStripLabel2.Text = "Context Variable:";
             // 
-            // tbItemType
+            // tbContextVar
             // 
-            this.tbItemType.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tbItemType.Name = "tbItemType";
-            this.tbItemType.Size = new System.Drawing.Size(200, 25);
+            this.tbContextVar.Name = "tbContextVar";
+            this.tbContextVar.Size = new System.Drawing.Size(50, 25);
             // 
-            // toolStripLabel1
+            // btnSave
             // 
-            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(40, 22);
-            this.toolStripLabel1.Text = "TItem:";
+            this.btnSave.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(35, 22);
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dgvColumns
             // 
@@ -123,31 +108,45 @@ namespace RadzenGridHelper
             this.dgvColumns.Size = new System.Drawing.Size(664, 240);
             this.dgvColumns.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 265);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 66);
-            this.panel1.TabIndex = 2;
-            // 
             // colPropertyName
             // 
+            this.colPropertyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colPropertyName.DataPropertyName = "PropertyName";
             this.colPropertyName.HeaderText = "Property Name";
             this.colPropertyName.Name = "colPropertyName";
             // 
             // colTitle
             // 
+            this.colTitle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colTitle.DataPropertyName = "Title";
             this.colTitle.HeaderText = "Title";
             this.colTitle.Name = "colTitle";
             // 
             // colEditorControl
             // 
+            this.colEditorControl.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colEditorControl.DataPropertyName = "EditorControl";
             this.colEditorControl.HeaderText = "Editor Control";
             this.colEditorControl.Name = "colEditorControl";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnBuildMarkup);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 265);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(664, 66);
+            this.panel1.TabIndex = 2;
+            // 
+            // btnBuildMarkup
+            // 
+            this.btnBuildMarkup.Location = new System.Drawing.Point(324, 22);
+            this.btnBuildMarkup.Name = "btnBuildMarkup";
+            this.btnBuildMarkup.Size = new System.Drawing.Size(107, 23);
+            this.btnBuildMarkup.TabIndex = 0;
+            this.btnBuildMarkup.Text = "Build Markup";
+            this.btnBuildMarkup.UseVisualStyleBackColor = true;
+            this.btnBuildMarkup.Click += new System.EventHandler(this.btnBuildMarkup_Click);
             // 
             // frmMain
             // 
@@ -160,9 +159,11 @@ namespace RadzenGridHelper
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Radzen Blazor Grid Helper";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColumns)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,14 +176,13 @@ namespace RadzenGridHelper
         private System.Windows.Forms.ToolStripTextBox tbItemType;
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripTextBox tbContextVar;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.ToolStripTextBox tbAssembly;
-        private System.Windows.Forms.ToolStripButton btnSelectAssembly;
         private System.Windows.Forms.DataGridView dgvColumns;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPropertyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEditorControl;
+        private System.Windows.Forms.ToolStripButton btnSave;
+        private System.Windows.Forms.Button btnBuildMarkup;
     }
 }
 
