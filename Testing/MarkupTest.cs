@@ -50,22 +50,22 @@ namespace Testing
   <Columns>
     <RadzenGridColumn TItem=""Whatever"" Title=""First Name"" Property=""FirstName"">
       <EditTemplate Context=""w"">
-        <RadzenTextBox @bind-Value=""FirstName""/>
+        <RadzenTextBox @bind-Value=""w.FirstName""/>
       </EditTemplate>
     </RadzenGridColumn>
     <RadzenGridColumn TItem=""Whatever"" Title=""Last Name"" Property=""LastName"">
       <EditTemplate Context=""w"">
-        <RadzenTextBox @bind-Value=""LastName""/>
+        <RadzenTextBox @bind-Value=""w.LastName""/>
       </EditTemplate>
     </RadzenGridColumn>
     <RadzenGridColumn TItem=""Whatever"" Title=""Birth Date"" Property=""BirthDate"">
       <EditTemplate Context=""w"">
-        <RadzenDatePicker @bind-Value=""BirthDate""/>
+        <RadzenDatePicker @bind-Value=""w.BirthDate""/>
       </EditTemplate>
     </RadzenGridColumn>
     <RadzenGridColumn TItem=""Whatever"" Title=""Active"" Property=""IsActive"">
       <EditTemplate Context=""w"">
-        <RadzenSwitch @bind-Value=""IsActive""/>
+        <RadzenSwitch @bind-Value=""w.IsActive""/>
       </EditTemplate>
     </RadzenGridColumn>
   </Columns>

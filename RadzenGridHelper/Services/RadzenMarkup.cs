@@ -35,7 +35,7 @@ namespace RadzenGridHelper.Services
 
                     edit.Children.Add(new XmlElement(col.EditorControl, new Dictionary<string, object>()
                     {
-                        ["@bind-Value"] = col.PropertyName
+                        ["@bind-Value"] = $"{grid.ContextVariable}.{col.PropertyName}"
                     }));
 
                     ele.Children.Add(edit);
