@@ -133,16 +133,19 @@ namespace RadzenGridHelper
             // 
             // colPropertyName
             // 
+            this.colPropertyName.DataPropertyName = "PropertyName";
             this.colPropertyName.HeaderText = "Property Name";
             this.colPropertyName.Name = "colPropertyName";
             // 
             // colTitle
             // 
+            this.colTitle.DataPropertyName = "Title";
             this.colTitle.HeaderText = "Title";
             this.colTitle.Name = "colTitle";
             // 
             // colEditorControl
             // 
+            this.colEditorControl.DataPropertyName = "EditorControl";
             this.colEditorControl.HeaderText = "Editor Control";
             this.colEditorControl.Name = "colEditorControl";
             // 
