@@ -40,10 +40,17 @@ namespace RadzenGridHelper
             this.colPropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEditorControl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnBuildMarkup = new System.Windows.Forms.Button();
+            this.btnCopy = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColumns)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +61,8 @@ namespace RadzenGridHelper
             this.tbItemType,
             this.toolStripLabel2,
             this.tbContextVar,
-            this.btnSave});
+            this.btnSave,
+            this.btnOpen});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(664, 25);
@@ -102,10 +110,10 @@ namespace RadzenGridHelper
             this.colTitle,
             this.colEditorControl});
             this.dgvColumns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvColumns.Location = new System.Drawing.Point(0, 25);
+            this.dgvColumns.Location = new System.Drawing.Point(3, 3);
             this.dgvColumns.Name = "dgvColumns";
             this.dgvColumns.RowTemplate.Height = 25;
-            this.dgvColumns.Size = new System.Drawing.Size(664, 240);
+            this.dgvColumns.Size = new System.Drawing.Size(650, 272);
             this.dgvColumns.TabIndex = 1;
             // 
             // colPropertyName
@@ -129,32 +137,74 @@ namespace RadzenGridHelper
             this.colEditorControl.HeaderText = "Editor Control";
             this.colEditorControl.Name = "colEditorControl";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(664, 306);
+            this.tabControl1.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dgvColumns);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(656, 278);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Columns - Input";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(656, 278);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Markup - Output";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnBuildMarkup);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 265);
+            this.panel1.Controls.Add(this.btnCopy);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 66);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(650, 40);
+            this.panel1.TabIndex = 0;
             // 
-            // btnBuildMarkup
+            // btnCopy
             // 
-            this.btnBuildMarkup.Location = new System.Drawing.Point(324, 22);
-            this.btnBuildMarkup.Name = "btnBuildMarkup";
-            this.btnBuildMarkup.Size = new System.Drawing.Size(107, 23);
-            this.btnBuildMarkup.TabIndex = 0;
-            this.btnBuildMarkup.Text = "Build Markup";
-            this.btnBuildMarkup.UseVisualStyleBackColor = true;
-            this.btnBuildMarkup.Click += new System.EventHandler(this.btnBuildMarkup_Click);
+            this.btnCopy.Location = new System.Drawing.Point(13, 7);
+            this.btnCopy.Name = "btnCopy";
+            this.btnCopy.Size = new System.Drawing.Size(75, 23);
+            this.btnCopy.TabIndex = 0;
+            this.btnCopy.Text = "Copy";
+            this.btnCopy.UseVisualStyleBackColor = true;
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
+            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(40, 22);
+            this.btnOpen.Text = "Open";
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(664, 331);
-            this.Controls.Add(this.dgvColumns);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -163,6 +213,9 @@ namespace RadzenGridHelper
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColumns)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -177,12 +230,16 @@ namespace RadzenGridHelper
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripTextBox tbContextVar;
         private System.Windows.Forms.DataGridView dgvColumns;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPropertyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEditorControl;
         private System.Windows.Forms.ToolStripButton btnSave;
-        private System.Windows.Forms.Button btnBuildMarkup;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCopy;
+        private System.Windows.Forms.ToolStripButton btnOpen;
     }
 }
 

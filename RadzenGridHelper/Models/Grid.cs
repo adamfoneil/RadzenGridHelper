@@ -1,10 +1,12 @@
-﻿namespace RadzenGridHelper.Models
+﻿using System.Linq;
+
+namespace RadzenGridHelper.Models
 {
     public class Grid
     {
         public string ItemType { get; set; }
         public string ContextVariable { get; set; }
-        public Column[] Columns { get; set; }
+        public Column[] Columns { get; set; } = Enumerable.Empty<Column>().ToArray();
 
         public class Column
         {

@@ -1,11 +1,13 @@
 ﻿using RadzenGridHelper.Models;
+using System.Linq;
 using System.Windows.Forms;
+using WinForms.Binding;
 
 namespace RadzenGridHelper
 {
     public partial class frmMain : Form
-    {        
-        //private JsonSDI<Grid> _doc = new JsonSDI<Grid>(".json", "Json Files|*.json", "Save changes?");
+    {
+        private ControlBinder<Grid> _binder;
 
         public frmMain()
         {
@@ -15,28 +17,31 @@ namespace RadzenGridHelper
 
         private void frmMain_Load(object sender, System.EventArgs e)
         {
-            //_doc.Document = new Grid();
+            _binder = new ControlBinder<Grid>();
+            _binder.Object = new Grid();
             InitBinding();
         }
 
         private void InitBinding()
-        {
-            //_doc.Controls.Add(tbItemType, field => field.ItemType);
-            //_doc.Controls.Add(tbContextVar, field => field.ContextVariable);
-
-            BindingSource bsColumns = new BindingSource();
-            //bsColumns.DataSource = _doc.Document.Columns;
-            dgvColumns.DataSource = bsColumns;
+        {            
+            _binder.Add(tbItemType, field => field.ItemType);
+            _binder.Add(tbContextVar, field => field.ContextVariable);
+            _binder.AddDataGridView(dgvColumns, g => g.Columns, (rows, obj) => obj.Columns = rows.ToArray());
         }
 
-        private async void btnSave_Click(object sender, System.EventArgs e)
+        private void btnSave_Click(object sender, System.EventArgs e)
         {
-            //await _doc.SaveAsync();
+            LocalFile.PromptSaveJson(_binder.Object);
         }
 
         private void btnBuildMarkup_Click(object sender, System.EventArgs e)
         {
             //var element = 
+        }
+
+        private void btnOpen_Click(object sender, System.EventArgs e)
+        {
+            LocalFile.PromptOpenJson<Grid>((obj) => _binder.Object = obj);
         }
     }
 }
