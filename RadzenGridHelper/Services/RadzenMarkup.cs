@@ -1,4 +1,5 @@
-﻿using RadzenGridHelper.Models;
+﻿using RadzenGridHelper.Classes;
+using RadzenGridHelper.Models;
 using System.Collections.Generic;
 using System.Linq;
 

@@ -21,6 +21,21 @@ namespace WinForms.Binding
                 var collection = bindingSource.DataSource as IEnumerable<TRow>;
                 saveAction.Invoke(collection, Object);
             };
+
+            dataGridView.UserDeletedRow += (sender, args) =>
+            {
+                IsDirty = true;
+            };
+
+            dataGridView.UserAddedRow += (sender, args) =>
+            {
+                IsDirty = true;
+            };
+
+            dataGridView.CellEndEdit += (sender, args) =>
+            {
+                IsDirty = true;
+            };            
         }
 
         private void InitGridViewBinding<TRow>(T @object, DataGridView dataGridView, Expression<Func<T, IEnumerable<TRow>>> collection)

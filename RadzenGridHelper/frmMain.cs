@@ -1,5 +1,8 @@
 ﻿using RadzenGridHelper.Models;
+using RadzenGridHelper.Services;
+using System;
 using System.Linq;
+using System.Text.Json;
 using System.Windows.Forms;
 using WinForms.Binding;
 
@@ -7,7 +10,7 @@ namespace RadzenGridHelper
 {
     public partial class frmMain : Form
     {
-        private ControlBinder<Grid> _binder;
+        private DocumentManager<Grid> _doc;        
 
         public frmMain()
         {
@@ -15,33 +18,51 @@ namespace RadzenGridHelper
             dgvColumns.AutoGenerateColumns = false;
         }
 
-        private void frmMain_Load(object sender, System.EventArgs e)
+        private void frmMain_Load(object sender, EventArgs e)
         {
-            _binder = new ControlBinder<Grid>();
-            _binder.Object = new Grid();
+            _doc = new DocumentManager<Grid>(this)
+            {
+                FileDialogExtension = ".json",
+                FileDialogFilter = "Json Files|*.json|All Files|*.*"
+            };
+
+            _doc.Binder.Object = new Grid();
             InitBinding();
         }
 
         private void InitBinding()
         {            
-            _binder.Add(tbItemType, field => field.ItemType);
-            _binder.Add(tbContextVar, field => field.ContextVariable);
-            _binder.AddDataGridView(dgvColumns, g => g.Columns, (rows, obj) => obj.Columns = rows.ToArray());
+            _doc.Binder.Add(tbItemType, field => field.ItemType);
+            _doc.Binder.Add(tbContextVar, field => field.ContextVariable);
+            _doc.Binder.AddDataGridView(dgvColumns, g => g.Columns, (rows, obj) => obj.Columns = rows.ToArray());
         }
 
-        private void btnSave_Click(object sender, System.EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            LocalFile.PromptSaveJson(_binder.Object);
+            await _doc.PromptSaveAsync();
         }
 
-        private void btnBuildMarkup_Click(object sender, System.EventArgs e)
+        private async void btnOpen_Click(object sender, EventArgs e)
         {
-            //var element = 
+            await _doc.PromptOpenAsync();            
         }
 
-        private void btnOpen_Click(object sender, System.EventArgs e)
+        private void btnCopy_Click(object sender, EventArgs e)
         {
-            LocalFile.PromptOpenJson<Grid>((obj) => _binder.Object = obj);
+            try
+            {
+                tbMarkup.Text = RadzenMarkup.BuildGrid(_doc.Binder.Object);
+                Clipboard.SetText(tbMarkup.Text);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private async void btnNew_Click(object sender, EventArgs e)
+        {
+            await _doc.PromptNewAsync(() => new Grid());
         }
     }
 }

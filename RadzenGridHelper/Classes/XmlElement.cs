@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace RadzenGridHelper.Services
+namespace RadzenGridHelper.Classes
 {
     public class XmlElement
     {

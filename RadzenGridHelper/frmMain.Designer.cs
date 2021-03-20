@@ -36,6 +36,7 @@ namespace RadzenGridHelper
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tbContextVar = new System.Windows.Forms.ToolStripTextBox();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
+            this.btnOpen = new System.Windows.Forms.ToolStripButton();
             this.dgvColumns = new System.Windows.Forms.DataGridView();
             this.colPropertyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,9 +44,10 @@ namespace RadzenGridHelper
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbMarkup = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCopy = new System.Windows.Forms.Button();
-            this.btnOpen = new System.Windows.Forms.ToolStripButton();
+            this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvColumns)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -62,7 +64,8 @@ namespace RadzenGridHelper
             this.toolStripLabel2,
             this.tbContextVar,
             this.btnSave,
-            this.btnOpen});
+            this.btnOpen,
+            this.btnNew});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(664, 25);
@@ -101,6 +104,17 @@ namespace RadzenGridHelper
             this.btnSave.Size = new System.Drawing.Size(35, 22);
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
+            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(40, 22);
+            this.btnOpen.Text = "Open";
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // dgvColumns
             // 
@@ -161,6 +175,7 @@ namespace RadzenGridHelper
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tbMarkup);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
@@ -169,6 +184,15 @@ namespace RadzenGridHelper
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Markup - Output";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tbMarkup
+            // 
+            this.tbMarkup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbMarkup.Location = new System.Drawing.Point(3, 43);
+            this.tbMarkup.Multiline = true;
+            this.tbMarkup.Name = "tbMarkup";
+            this.tbMarkup.Size = new System.Drawing.Size(650, 232);
+            this.tbMarkup.TabIndex = 1;
             // 
             // panel1
             // 
@@ -187,17 +211,18 @@ namespace RadzenGridHelper
             this.btnCopy.TabIndex = 0;
             this.btnCopy.Text = "Copy";
             this.btnCopy.UseVisualStyleBackColor = true;
+            this.btnCopy.Click += new System.EventHandler(this.btnCopy_Click);
             // 
-            // btnOpen
+            // btnNew
             // 
-            this.btnOpen.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnOpen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
-            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(40, 22);
-            this.btnOpen.Text = "Open";
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.btnNew.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(35, 22);
+            this.btnNew.Text = "New";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // frmMain
             // 
@@ -216,6 +241,7 @@ namespace RadzenGridHelper
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -240,6 +266,8 @@ namespace RadzenGridHelper
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCopy;
         private System.Windows.Forms.ToolStripButton btnOpen;
+        private System.Windows.Forms.TextBox tbMarkup;
+        private System.Windows.Forms.ToolStripButton btnNew;
     }
 }
 
