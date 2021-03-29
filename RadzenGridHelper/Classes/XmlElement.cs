@@ -8,7 +8,7 @@ namespace RadzenGridHelper.Classes
     {
         public XmlElement(string name)
         {
-            Name = name;
+            Name = name;            
             Attributes = new Dictionary<string, object>();
             Children = new List<XmlElement>();
         }
@@ -25,6 +25,8 @@ namespace RadzenGridHelper.Classes
         }
 
         public string Name { get; }
+
+        public string InnerText { get; init; }
 
         public List<XmlElement> Children { get; }
 
@@ -55,7 +57,14 @@ namespace RadzenGridHelper.Classes
                 }
                 else
                 {
-                    stringBuilder.AppendLine(indentStr + Tag(current));
+                    if (string.IsNullOrEmpty(current.InnerText))
+                    {
+                        stringBuilder.AppendLine(indentStr + Tag(current));
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine(indentStr + StartTag(current) + current.InnerText + EndTag(current));
+                    }                    
                 }
             }
         }

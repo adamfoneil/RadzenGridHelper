@@ -28,6 +28,14 @@ namespace RadzenGridHelper.Services
 
                 if (!string.IsNullOrEmpty(col.EditorControl))
                 {
+                    var view = new XmlElement("Template", new
+                    {
+                        Context = grid.ContextVariable
+                    });
+
+                    view.Children.Add(new XmlElement("span") { InnerText = $"@{grid.ContextVariable}.{col.PropertyName}" });
+                    ele.Children.Add(view);
+
                     var edit = new XmlElement("EditTemplate", new
                     {
                         Context = grid.ContextVariable
